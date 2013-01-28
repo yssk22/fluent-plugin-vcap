@@ -5,7 +5,7 @@ module Fluent
       Fluent::Plugin.register_output("vcap_app_log", self)
 
       def initialize
-        @vcap_application = JSON.parse(ENV['VCAP_APPLICATION'])
+        @vcap_application = JSON.parse(ENV['VCAP_APPLICATION'].dup)
         super
       end
 
